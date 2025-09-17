@@ -5,29 +5,26 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Введите путь к файлу:");
+        Console.WriteLine("Enter your file's path (for example, C:\\temp\\data.txt):");
         string filePath = Console.ReadLine();
+
+        Console.WriteLine($"Working on: {Path.GetFullPath(filePath)}");
 
         if (!File.Exists(filePath))
         {
-            Console.WriteLine("Файла здесь нет/ Создаю новый");
-            File.WriteAllText(filePath, ""); // создаем пустой файл
+            Console.WriteLine("Not found... No problem, we'll create it!");
+            File.WriteAllText(filePath, "The files was not foudn and was just created!");
         }
 
-        Console.WriteLine("\n=== Содержимое файла ===\"");
+        Console.WriteLine("\n=== Content ===");
         string content = File.ReadAllText(filePath);
-        Console.WriteLine(content);
+        Console.WriteLine(string.IsNullOrEmpty(content) ? "(empty!)" : content);
 
-        Console.WriteLine("\n=== Запишем инфу ===\"");
-        File.WriteAllText(filePath, "Запись произведена!");
+        Console.WriteLine("\n=== Let's write something! ===");
+        File.WriteAllText(filePath, "Have a nice day!");
 
-        Console.WriteLine("\n=== Новая инфа ===\"");
+        Console.WriteLine("\n=== New info ===");
         content = File.ReadAllText(filePath);
         Console.WriteLine(content);
-
-
-
-
     }
 }
-
