@@ -13,7 +13,7 @@ class Program
         if (!File.Exists(filePath))
         {
             Console.WriteLine("Not found... No problem, we'll create it!");
-            File.WriteAllText(filePath, "The files was not foudn and was just created!");
+            File.WriteAllText(filePath, "The files was not found and was just created!");
         }
 
         Console.WriteLine("\n=== Content ===");
